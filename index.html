@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative CSS Navigation Indicator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navigation">
+        <ul> 
+            <li class="list active" data-color="#46019B">
+                <a href="#">
+                    <span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span>
+                    <span class="title">Home</span>             
+                </a>
+            </li>
+            <li class="list" data-color="#007EFE">
+                <a href="#">
+                    <span class="icon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                    <span class="title">Profile</span>             
+                </a>
+            </li>
+            <li class="list" data-color="#00BB00">
+                <a href="#">
+                    <span class="icon"><i class="fa fa-comment" aria-hidden="true"></i></span>
+                    <span class="title">Message</span>             
+                </a>
+            </li>
+            <li class="list" data-color="#ffc508f1">
+                <a href="#">
+                    <span class="icon"><i class="fa fa-question-circle" aria-hidden="true"></i></span>
+                    <span class="title">Help</span>             
+                </a>
+            </li>
+            <li class="list" data-color="#DD0000">
+                <a href="#">
+                    <span class="icon"><i class="fa fa-cog" aria-hidden="true"></i></span>
+                    <span class="title">Setting</span>             
+                </a>
+            </li>
+            <div class="indicator"></div>
+        </ul>
+    </div>
+        <script>  
+            let list = document.querySelectorAll('.list');
+            for (let i=0; i<list.length; i++){
+                list[i].onmouseover = function(){
+                let j = 0;
+                while (j < list.length){
+                    list[j++].className = 'list';
+                 }
+                 list[i].className = 'list active'
+               }
+            }
+
+            list.forEach(elements => {
+                elements.addEventListener("mouseenter", function (event){
+                let bg = document.querySelector('body');
+                let color = event.target.getAttribute('data-color');
+                bg.style.backgroundColor = color;
+                })
+            })
+        </script>
+
+</body>
+</html>
+<!-- 
+tutorial e cores
+12
+https://www.youtube.com/watch?v=xYNYGETrHJM
+https://www.schemecolor.com/wp-content/themes/colorsite/include/cc5.php?color0=46019b&color1=007efe&color2=00bb00&color3=fef601&color4=dd0000&pn=5-Color%20Rainbow -->
